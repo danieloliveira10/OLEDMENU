@@ -24,9 +24,6 @@ int optSelected;
 int optSize = -1;
 
 
-
-
-
 void setup() {
   Serial.begin(9600);
   pinMode(btnSwitch, INPUT_PULLUP);
@@ -34,7 +31,6 @@ void setup() {
   menuOled("MAIN MENU", "ZERO", "UM", "", ""); //A CHAMADA É FEITA POR ESSE COMANDO 
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.clearDisplay();
-  
 }
 
 void loop() {
@@ -51,6 +47,7 @@ void loop() {
     delay(200);
   }
 }
+
 void menuOled(String Stitle,String Sop1,String Sop2,String Sop3,String Sop4)
 {
   title = Stitle;
@@ -65,6 +62,7 @@ void menuOled(String Stitle,String Sop1,String Sop2,String Sop3,String Sop4)
   if (opts[2].length() > 0) expandOption = true;
   boxSize = expandOption ? 62 : 126;
 }
+
 void mainMenu(){
   drawMenu();
   //Desenha a parte dinâmica do menu
@@ -84,9 +82,7 @@ void mainMenu(){
   if(optSelected == 3) display.fillRect(68,43, 10, 16,WHITE);  // OP 3 SELECTED
 
   display.display();
-  
 }
-
 
 //Desenha toda a área estática do menu
 void drawMenu(){
@@ -96,6 +92,7 @@ void drawMenu(){
     display.drawRect(66,16,62,20,WHITE); //op 2   D
     display.drawRect(66,41,62,20,WHITE); //op 3   D
   }
+  
   //Desenha área do título
   display.setCursor(0,1); //FAIXA 0,0 A 128,9 AMARELA (ENTRE 0,9 E 0,15 FICAM MISTURADO AZUL E AMARELO GRADATIVAMENTE)
   display.print(title);
@@ -116,8 +113,7 @@ void drawMenu(){
   }
 }
 
-
-void opt0(){
+void opt0(){ //exemplo de utilizacao
   display.clearDisplay();
   display.setCursor(10,16);
   display.print("OPCAO 0");
@@ -125,6 +121,7 @@ void opt0(){
   delay(3000);
   display.clearDisplay();
 }
+
 void opt1(){
 
 }
